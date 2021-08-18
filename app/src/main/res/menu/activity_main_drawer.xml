@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home"
+            android:icon="@drawable/home"
+            />
+
+        <item
+            android:id="@+id/nav_Accessory"
+            android:title="@string/accessory"
+            android:icon="@drawable/necklace"
+            />
+        <item
+            android:id="@+id/nav_Arcade"
+            android:title="@string/arcade"
+            android:icon="@drawable/arcade_cabinet"
+            />
+        <item
+            android:id="@+id/nav_Fashion"
+            android:title="@string/fashion"
+            android:icon="@drawable/fashion_trend"
+            />
+        <item
+            android:id="@+id/nav_Food"
+            android:title="@string/food"
+            android:icon="@drawable/hamburger"
+            />
+        <item
+            android:id="@+id/nav_Heath"
+            android:title="@string/heath"
+            android:icon="@drawable/clinic"
+            />
+        <item
+            android:id="@+id/nav_Lifestyle"
+            android:title="@string/lifestyle"
+            android:icon="@drawable/yoga"
+            />
+        <item
+            android:id="@+id/nav_Sports"
+            android:title="@string/sports"
+            android:icon="@drawable/soccer"
+            />
+
+        <item
+            android:id="@+id/about"
+            android:title="@string/about"
+            android:icon="@drawable/about"
+            />
+    </group>
+
+</menu>

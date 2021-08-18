@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#1aae66</color>
+    <color name="primaryLightColor">#5ee194</color>
+    <color name="primaryDarkColor">#007d3a</color>
+
+    <color name="secondaryColor">#1de9b6</color>
+    <color name="secondaryLightColor">#6effe8</color>
+    <color name="secondaryDarkColor">#00b686</color>
+
+    <color name="primaryTextColor">@color/white</color>
+    <color name="secondaryTextColor">#000000</color>
+
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="lightGray">#F9F9F9</color>
+    <color name="mediumGray">#D1D1D1</color>
+    <color name="lightMediumGray">#80D1D1D1</color>
+    <color name="gray">#A9000000</color>
+    <color name="lighterGray">#ddd</color>
+    <color name="darkGray">#4B4B4B</color>
+    <color name="dark">#313C44</color>
+    <color name="darker">#151B20</color>
+
+    <color name="statusBarColor">@color/primaryDarkColor</color>
+    <color name="actionBarBackgroundColor">@color/primaryColor</color>
+
+
+    // Custom CardView Style
+    <color name="strokeColor">@color/lightMediumGray</color>
+    <color name="cardBackgroundColor">@color/white</color>
+    <color name="cardBackgroundLightColor">#106200EA</color>
+    <color name="titleColor">@color/darker</color>
+    <color name="descriptionColor">@color/darkGray</color>
+
+    <color name="backgroundColor">@color/lightGray</color>
+    <color name="placeholderColor">@color/mediumGray</color>
+
+    <color name="recyclerViewColor">#F5F5F5</color>
+
+    <color name="color_navigation_list_background">@color/white</color>
+</resources>

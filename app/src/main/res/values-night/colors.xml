@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="primaryColor" tools:ignore="MissingDefaultResource">@color/darker</color>
+    <color name="primaryLightColor" tools:ignore="MissingDefaultResource">@color/darkGray</color>
+    <color name="primaryDarkColor" tools:ignore="MissingDefaultResource">@color/black</color>
+
+    <color name="secondaryColor" tools:ignore="MissingDefaultResource">#4db6ac</color>
+    <color name="secondaryLightColor" tools:ignore="MissingDefaultResource">#82e9de</color>
+    <color name="secondaryDarkColor" tools:ignore="MissingDefaultResource">#00867d</color>
+
+    <color name="primaryTextColor" tools:ignore="MissingDefaultResource">#ffffff</color>
+    <color name="secondaryTextColor" tools:ignore="MissingDefaultResource">#000000</color>
+
+    <color name="statusBarColor">@color/primaryDarkColor</color>
+    <color name="actionBarBackgroundColor">@color/primaryColor</color>
+
+
+    // Custom CardView Style
+    <color name="strokeColor">@color/mediumGray</color>
+    <color name="cardBackgroundColor">@color/darker</color>
+    <color name="cardBackgroundLightColor">#106200EA</color>
+    <color name="titleColor">@color/mediumGray</color>
+    <color name="descriptionColor">@color/mediumGray</color>
+
+    <color name="backgroundColor">@color/lightGray</color>
+    <color name="placeholderColor">@color/darker</color>
+
+    <color name="color_navigation_list_background">@color/darker</color>
+
+</resources>
