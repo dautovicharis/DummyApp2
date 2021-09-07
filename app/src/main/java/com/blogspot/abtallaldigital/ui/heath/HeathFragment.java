@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.HeathFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -79,13 +79,13 @@ public class HeathFragment extends Fragment {
 
         if(postViewModel.token.getValue() == null){
 
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
-                    + "posts/search?q=label:Heath&key=" + com.blogspot.abtallaldigital.utils.Constans.getKEY());
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
+                    + "posts/search?q=label:Heath&key=" + Constants.getKEY());
         }else {
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
                     + "posts?labels=Heath&pageToken="
                     + postViewModel.token.getValue()
-                    + "&key=" + Constans.getKEY());
+                    + "&key=" + Constants.getKEY());
         }
 
 

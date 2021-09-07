@@ -1,6 +1,6 @@
 package com.blogspot.abtallaldigital.utils;
 
-public class Constans {
+public class Constants {
     private static final String KEY = "";
     private static final String BASE_URL = "https://www.googleapis.com/blogger/v3/blogs/4294497614198718393/posts/";
     private static final String BASE_URL_POSTS_BY_LABEL

@@ -25,7 +25,7 @@ import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.FragmentHomeBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
 
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
 //        itemsDatabase = ItemsDatabase.getINSTANCE(getContext());
-        postViewModel.finalURL.setValue(Constans.getBaseUrl() + "?key=" + Constans.getKEY());
+        postViewModel.finalURL.setValue(Constants.getBaseUrl() + "?key=" + Constants.getKEY());
         itemArrayList = new ArrayList<>();
         adapter = new PostAdapter(getContext(), itemArrayList, this, postViewModel);
 

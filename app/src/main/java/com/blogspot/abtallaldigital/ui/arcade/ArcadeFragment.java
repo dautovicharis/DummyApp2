@@ -25,7 +25,7 @@ import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.FragmentArcadeBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -87,13 +87,13 @@ public class ArcadeFragment extends Fragment {
 
         if (postViewModel.token.getValue() == null) {
 
-            postViewModel.finalURL.setValue(Constans.getBaseUrlPostsByLabel()
-                    + "posts/search?q=label:Arcade&key=" + Constans.getKEY());
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
+                    + "posts/search?q=label:Arcade&key=" + Constants.getKEY());
         } else {
-            postViewModel.finalURL.setValue(Constans.getBaseUrlPostsByLabel()
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
                     + "posts?labels=Arcade&pageToken="
                     + postViewModel.token.getValue()
-                    + "&key=" + Constans.getKEY());
+                    + "&key=" + Constants.getKEY());
         }
 
         if (Utils.hasNetworkAccess(requireContext())) {

@@ -26,7 +26,7 @@ import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.FashionFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -81,13 +81,13 @@ public class FashionFragment extends Fragment {
 
         if (postViewModel.token.getValue() == null) {
 
-            postViewModel.finalURL.setValue(Constans.getBaseUrlPostsByLabel()
-                    + "posts/search?q=label:Fashion&key=" + Constans.getKEY());
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
+                    + "posts/search?q=label:Fashion&key=" + Constants.getKEY());
         } else {
-            postViewModel.finalURL.setValue(Constans.getBaseUrlPostsByLabel()
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
                     + "posts?labels=Fashion&pageToken="
                     + postViewModel.token.getValue()
-                    + "&key=" + Constans.getKEY());
+                    + "&key=" + Constants.getKEY());
         }
 
 

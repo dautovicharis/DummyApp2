@@ -26,7 +26,7 @@ import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.FoodFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -77,13 +77,13 @@ public class FoodFragment extends Fragment {
 
         if(postViewModel.token.getValue() == null){
 
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
-                    + "posts/search?q=label:Food&key=" + com.blogspot.abtallaldigital.utils.Constans.getKEY());
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
+                    + "posts/search?q=label:Food&key=" + Constants.getKEY());
         }else {
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
                     + "posts?labels=Food&pageToken="
                     + postViewModel.token.getValue()
-                    + "&key=" + Constans.getKEY());
+                    + "&key=" + Constants.getKEY());
         }
 
         if(Utils.hasNetworkAccess(requireContext())) {
