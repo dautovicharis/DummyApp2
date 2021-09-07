@@ -2,3 +2,9 @@
 
 # Project exclude paths
 /.gradle/
+.gradle
+.idea
+*.iml
+*.patch
+local.properties
+private_key.pepk

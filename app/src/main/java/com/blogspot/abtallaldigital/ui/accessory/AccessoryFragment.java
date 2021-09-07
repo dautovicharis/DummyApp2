@@ -39,13 +39,14 @@ import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+@SuppressWarnings("unused")
 @AndroidEntryPoint
 public class AccessoryFragment extends Fragment {
 
     private FragmentAccessoryBinding binding;
     private com.blogspot.abtallaldigital.viewmodels.PostViewModel postViewModel;
     public static final String TAG = "AccessoryFragment";
-    private com.blogspot.abtallaldigital.adapters.PostAdapter adapter;
+    private PostAdapter adapter;
     private List<Item> itemArrayList;
 
 

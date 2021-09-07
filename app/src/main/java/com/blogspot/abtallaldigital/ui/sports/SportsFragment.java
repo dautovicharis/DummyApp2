@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.SportsFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
@@ -41,6 +40,7 @@ import java.util.List;
 import dagger.hilt.android.AndroidEntryPoint;
 
 
+@SuppressWarnings("ALL")
 @AndroidEntryPoint
 public class SportsFragment extends Fragment {
 

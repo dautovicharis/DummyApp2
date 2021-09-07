@@ -12,8 +12,6 @@ import com.blogspot.abtallaldigital.pojo.Item;
 import com.blogspot.abtallaldigital.pojo.PostList;
 import com.blogspot.abtallaldigital.utils.Constans;
 
-import org.reactivestreams.Subscription;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,13 +20,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.CompletableObserver;
-import io.reactivex.rxjava3.core.FlowableSubscriber;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.HttpException;
 import retrofit2.Response;
 
+@SuppressWarnings("unused")
 @HiltViewModel
 public class PostViewModel extends ViewModel {
 
@@ -36,14 +34,14 @@ public class PostViewModel extends ViewModel {
 
 
     private final com.blogspot.abtallaldigital.data.Repository repository;
-    public MutableLiveData<com.blogspot.abtallaldigital.pojo.PostList> postListMutableLiveData = new MutableLiveData<>();
-    public MutableLiveData<String> finalURL = new MutableLiveData<>();
-    public MutableLiveData<String> token = new MutableLiveData<>();
-    public MutableLiveData<String> label = new MutableLiveData<>();
-    public MutableLiveData<Integer> errorCode = new MutableLiveData<>();
-    public MutableLiveData<Boolean> searchError = new MutableLiveData<>();
-    public LiveData<List<com.blogspot.abtallaldigital.pojo.Item>> getAllItemsFromDataBase;
-    public MutableLiveData<List<com.blogspot.abtallaldigital.pojo.Item>> getItemsBySearchMT = new MutableLiveData<>();
+    public final MutableLiveData<com.blogspot.abtallaldigital.pojo.PostList> postListMutableLiveData = new MutableLiveData<>();
+    public final MutableLiveData<String> finalURL = new MutableLiveData<>();
+    public final MutableLiveData<String> token = new MutableLiveData<>();
+    public final MutableLiveData<String> label = new MutableLiveData<>();
+    public final MutableLiveData<Integer> errorCode = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> searchError = new MutableLiveData<>();
+    public final LiveData<List<com.blogspot.abtallaldigital.pojo.Item>> getAllItemsFromDataBase;
+    public final MutableLiveData<List<com.blogspot.abtallaldigital.pojo.Item>> getItemsBySearchMT = new MutableLiveData<>();
 
 //    public MutableLiveData<Boolean> ifAnythingWrongHappened = new MutableLiveData<>();
 
@@ -182,40 +180,6 @@ public class PostViewModel extends ViewModel {
 
                     }
                 });
-
-
-//                .subscribe(new Observer<PostList>() {
-//                    @Override
-//                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onNext(@io.reactivex.rxjava3.annotations.NonNull PostList postList) {
-//
-//                        token.setValue(postList.getNextPageToken());
-//                        postListMutableLiveData.setValue(postList);
-//                        finalURL.postValue(Constans.getBaseUrlPostsByLabel()
-//                                + "posts?labels=" + label.getValue() + "&pageToken="
-//                                + token.getValue()
-//                                + "&key=" + Constans.getKEY());
-//                    }
-//
-//                    @Override
-//                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-//                        Log.e(TAG, e.getMessage() + e.getCause());
-////                        ifAnythingWrongHappened.setValue(true);
-//                        if (e instanceof HttpException) {
-//                            errorCode.setValue(((HttpException) e).code());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//
-//                    }
-//                });
-
 
     }
 

@@ -37,6 +37,7 @@ public class PicassoImageGetter implements Html.ImageGetter {
 
     }
 
+    @SuppressWarnings("deprecation")
     private class BitmapDrawablePlaceHolder extends BitmapDrawable implements com.squareup.picasso.Target {
         protected Drawable drawable;
         @Override

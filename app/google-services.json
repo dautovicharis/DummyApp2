@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "188986038535",
+    "project_id": "dummy-app-1629904129788",
+    "storage_bucket": "dummy-app-1629904129788.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188986038535:android:012077d994a41371838da2",
+        "android_client_info": {
+          "package_name": "com.blogspot.abtallaldigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188986038535-kleailq6lj2pqpjpf83i95bf5ictpv2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJt68juc0w14dQ5h1nmfkS9djuati_up0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188986038535-kleailq6lj2pqpjpf83i95bf5ictpv2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -34,7 +34,6 @@ public class DetailsActivity extends AppCompatActivity {
     private static final String TAG = "DetailsActivity";
     private ActivityDetailsBinding binding;
 
-    private com.blogspot.abtallaldigital.utils.PicassoImageGetter imageGetter;
     String url, title, content, youtubeThumbnailImageSrc, youTubeLink;
     int youtubeThumbnailImageSetVisibility;
 
@@ -125,7 +124,7 @@ public class DetailsActivity extends AppCompatActivity {
         });
 
 
-        imageGetter = new PicassoImageGetter(binding.blogContent, this);
+        PicassoImageGetter imageGetter = new PicassoImageGetter(binding.blogContent, this);
         Spannable html;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             html = (Spannable) Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY, imageGetter, null);
