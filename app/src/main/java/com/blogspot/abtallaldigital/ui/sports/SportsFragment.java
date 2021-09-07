@@ -25,7 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.SportsFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -82,13 +82,13 @@ public class SportsFragment extends Fragment {
 
         if(postViewModel.token.getValue() == null){
 
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
-                    + "posts/search?q=label:Sports&key=" + com.blogspot.abtallaldigital.utils.Constans.getKEY());
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
+                    + "posts/search?q=label:Sports&key=" + Constants.getKEY());
         }else {
-            postViewModel.finalURL.setValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
+            postViewModel.finalURL.setValue(Constants.getBaseUrlPostsByLabel()
                     + "posts?labels=Sports&pageToken="
                     + postViewModel.token.getValue()
-                    + "&key=" + Constans.getKEY());
+                    + "&key=" + Constants.getKEY());
         }
 
 

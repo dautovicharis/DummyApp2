@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel;
 import com.blogspot.abtallaldigital.data.Repository;
 import com.blogspot.abtallaldigital.pojo.Item;
 import com.blogspot.abtallaldigital.pojo.PostList;
-import com.blogspot.abtallaldigital.utils.Constans;
+import com.blogspot.abtallaldigital.utils.Constants;
 
 import java.util.List;
 
@@ -156,10 +156,10 @@ public class PostViewModel extends ViewModel {
                                 token.setValue(postListResponse.body().getNextPageToken());
                             }
                             postListMutableLiveData.setValue(postListResponse.body());
-                            finalURL.postValue(com.blogspot.abtallaldigital.utils.Constans.getBaseUrlPostsByLabel()
+                            finalURL.postValue(Constants.getBaseUrlPostsByLabel()
                                     + "posts?labels=" + label.getValue() + "&pageToken="
                                     + token.getValue()
-                                    + "&key=" + com.blogspot.abtallaldigital.utils.Constans.getKEY());
+                                    + "&key=" + Constants.getKEY());
                         } else {
                             errorCode.setValue(postListResponse.code());
                             Log.e(TAG, "onNext: " + postListResponse.code());
@@ -187,8 +187,8 @@ public class PostViewModel extends ViewModel {
 
         searchError.setValue(false);
 
-        String url = com.blogspot.abtallaldigital.utils.Constans.getBaseUrl() +
-                "search?q=" + keyword + "&key=" + Constans.getKEY();
+        String url = Constants.getBaseUrl() +
+                "search?q=" + keyword + "&key=" + Constants.getKEY();
 
         Log.e(TAG, "getItemsBySearch: " + url);
 

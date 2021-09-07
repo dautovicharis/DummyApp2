@@ -15,7 +15,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.blogspot.abtallaldigital.utils.Constans.getBaseUrl;
+import static com.blogspot.abtallaldigital.utils.Constants.getBaseUrl;
 
 
 @InstallIn(SingletonComponent.class)
