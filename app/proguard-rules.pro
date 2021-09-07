@@ -20,9 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -dontusemixedcaseclassnames
--dontskipnonpubliclibraryclasses
 -verbose
--dontpreverify
 
 -dontnote android.net.http.*
 -dontnote org.apache.commons.codec.**
@@ -59,10 +57,7 @@
 
 -keep public class * extends androidx.fragment.app.Fragment
 -keep public class * extends androidx.fragment.app.DialogFragment
--keep public class * extends com.actionbarsherlock.app.SherlockListFragment
--keep public class * extends com.actionbarsherlock.app.SherlockFragment
 -keep public class * extends android.app.Fragment
--keep public class com.android.vending.licensing.ILicensingService
 -keep public class * extends java.lang.Exception
 
 -keep class androidx.appcompat.app.AppCompatActivity {*;}
@@ -95,8 +90,6 @@
 -keep class com.activeandroid.**.** { *; }
 -dontwarn com.activeandroid.**
 
--keep class * extends com.activeandroid.Model
--keep class * extends com.activeandroid.serializer.TypeSerializer
 
 -keep class android.support.v7.** { *; }
 -keep interface android.support.v7.** { *; }
@@ -209,10 +202,9 @@
 -dontwarn java.nio.file.**
 -dontwarn org.codehaus.**
 -dontwarn org.codehaus.mojo.**
--dontwarn retrofit2.Platform$Java8
+-dontwarn retrofit2.Platform.Java8
 -dontnote retrofit2.Platform
--dontnote retrofit2.Platform$IOS$MainThreadExecutor
-
+-dontnote retrofit2.Platform.IOS.MainThreadExecutor
 
 
 # OkHttp and Picasso
@@ -278,36 +270,10 @@
 -dontnote com.firebase.client.core.GaePlatform
 
 ## Android architecture components: Lifecycle
-# LifecycleObserver's empty constructor is considered to be unused by proguard
--keepclassmembers class * implements android.arch.lifecycle.LifecycleObserver {
-    <init>(...);
-}
-# ViewModel's empty constructor is considered to be unused by proguard
--keepclassmembers class * extends android.arch.lifecycle.ViewModel {
-    <init>(...);
-}
-# keep Lifecycle State and Event enums values
--keepclassmembers class android.arch.lifecycle.Lifecycle$State { *; }
--keepclassmembers class android.arch.lifecycle.Lifecycle$Event { *; }
-# keep methods annotated with @OnLifecycleEvent even if they seem to be unused
-# (Mostly for LiveData.LifecycleBoundObserver.onStateChange(), but who knows)
--keepclassmembers class * {
-    @android.arch.lifecycle.OnLifecycleEvent *;
-}
-
--keepclassmembers class * implements android.arch.lifecycle.LifecycleObserver {
-    <init>(...);
-}
-
--keep class * implements android.arch.lifecycle.LifecycleObserver {
-    <init>(...);
-}
 -keepclassmembers class android.arch.** { *; }
 -keep class android.arch.** { *; }
 -dontwarn android.arch.**
 
--keep class com.github.ybq.android.spinkit.SpinKitView
--dontwarn com.github.ybq.android.spinkit.SpinKitView
 
 
 #Glide
@@ -336,25 +302,7 @@
 
 ## Android architecture components: Lifecycle
 # LifecycleObserver's empty constructor is considered to be unused by proguard
--keepclassmembers class * implements android.arch.lifecycle.LifecycleObserver {
-    <init>(...);
-}
-# ViewModel's empty constructor is considered to be unused by proguard
--keepclassmembers class * extends android.arch.lifecycle.ViewModel {
-    <init>(...);
-}
-# keep Lifecycle State and Event enums values
--keepclassmembers class android.arch.lifecycle.Lifecycle$State { *; }
--keepclassmembers class android.arch.lifecycle.Lifecycle$Event { *; }
-# keep methods annotated with @OnLifecycleEvent even if they seem to be unused
-# (Mostly for LiveData.LifecycleBoundObserver.onStateChange(), but who knows)
--keepclassmembers class * {
-    @android.arch.lifecycle.OnLifecycleEvent *;
-}
-
 -keep class androidx.lifecycle.** { *; }
-
--keep class androidx.recyclerview.widget.**{*;}
 
 
 #all
@@ -371,33 +319,7 @@
 -dontnote org.xmlpull.v1.**
 -keep class org.xmlpull.** { *; }
 
-#retRofit
-# Platform calls Class.forName on types which do not exist on Android to determine platform.
--dontnote retrofit2.Platform
-# Platform used when running on RoboVM on iOS. Will not be used at runtime.
--dontnote retrofit2.Platform$IOS$MainThreadExecutor
-# Platform used when running on Java 8 VMs. Will not be used at runtime.
--dontwarn retrofit2.Platform$Java8
-# Retain generic type information for use by reflection by converters and adapters.
--keepattributes Signature
-# Retain declared checked exceptions for use by a Proxy instance.
--keepattributes Exceptions
--keepclasseswithmembers class * {
-    @retrofit2.http.* <methods>;
-}
-# Orm
--keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
 
-# Fresco
-
--keep,allowobfuscation @interface com.facebook.common.internal.DoNotStrip
--keep @com.facebook.common.internal.DoNotStrip class *
--keepclassmembers class * {
-    @com.facebook.common.internal.DoNotStrip *;
-}
--keepclassmembers class * {
-    native <methods>;
-}
 -dontwarn okio.**
 -dontwarn com.squareup.okhttp.**
 -dontwarn okhttp3.**
@@ -451,7 +373,15 @@
 -keep class * extends dagger.hilt.*
 
 
-
 -keep class android.support.v4.app.CoreComponentFactory.**{*;}
-
 -keep class com.test.dummyappv3.utils.WrapContentLinearLayoutManager.** { *; }
+
+
+#crashlytics
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+-printmapping mapping.txt
+
+-keep class com.crashlytics.** { *; }
+-dontwarn com.crashlytics.**

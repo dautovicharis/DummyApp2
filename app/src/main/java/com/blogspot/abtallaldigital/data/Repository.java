@@ -11,8 +11,8 @@ import dagger.hilt.android.scopes.ActivityRetainedScoped;
 @ActivityRetainedScoped
 public class Repository {
 
-    public RemoteDataSource remoteDataSource;
-    public LocalDataSource localDataSource;
+    public final RemoteDataSource remoteDataSource;
+    public final LocalDataSource localDataSource;
 
 
     @Inject

@@ -220,7 +220,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         intent.putExtra("url", item.getUrl());
                         intent.putExtra("title", item.getTitle());
                         intent.putExtra("content", item.getContent());
-                        int youtubeThumbnailImageSetVisibility;
+                        int youtubeThumbnailImageSetVisibility = 0;
 
                         Element element = document.body();
 

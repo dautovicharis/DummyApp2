@@ -22,6 +22,7 @@ public class PicassoCache {
 
         if (picassoInstance == null) {
 
+            //noinspection InstantiationOfUtilityClass
             new PicassoCache(context);
             return picassoInstance;
         }

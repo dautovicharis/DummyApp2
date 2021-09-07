@@ -1,7 +1,5 @@
 package com.blogspot.abtallaldigital.data.network;
 
-import com.blogspot.abtallaldigital.pojo.PostList;
-
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.Response;
 import retrofit2.http.GET;

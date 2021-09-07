@@ -6,11 +6,11 @@ import android.net.NetworkInfo;
 
 public class Utils {
 
-    public static final String TAG = Utils.class.getName();
-//    private SharedPreferences sharedPreferences;
+    //    private SharedPreferences sharedPreferences;
 //    private boolean isUserApproved = false;
 
 
+    @SuppressWarnings("unused")
     public static boolean hasNetworkAccess(Context context) {
 
         ConnectivityManager cm = (ConnectivityManager)

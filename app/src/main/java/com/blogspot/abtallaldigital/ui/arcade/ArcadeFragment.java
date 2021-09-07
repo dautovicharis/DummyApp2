@@ -36,6 +36,7 @@ import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
+@SuppressWarnings("ALL")
 @AndroidEntryPoint
 public class ArcadeFragment extends Fragment {
 

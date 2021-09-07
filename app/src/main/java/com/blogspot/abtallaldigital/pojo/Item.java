@@ -62,12 +62,7 @@ public class Item implements Serializable {
     @Expose
     //@DatabaseField (foreign = true, foreignAutoRefresh = true)
     @Ignore
-    private com.blogspot.abtallaldigital.pojo.Author author;
-    @SerializedName("replies")
-    @Expose
-    //@DatabaseField (foreign = true, foreignAutoRefresh = true)
-    @Ignore
-    private com.blogspot.abtallaldigital.pojo.Replies replies;
+    private Author author;
     @Ignore
     @SerializedName("labels")
     @Expose
@@ -162,13 +157,6 @@ public class Item implements Serializable {
         this.author = author;
     }
 
-    public com.blogspot.abtallaldigital.pojo.Replies getReplies() {
-        return replies;
-    }
-
-    public void setReplies(Replies replies) {
-        this.replies = replies;
-    }
 
     public List<String> getLabels() {
         return labels;

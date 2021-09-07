@@ -17,17 +17,15 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "MainActivity";
-
+    @SuppressWarnings("unused")
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
 
         setSupportActionBar(binding.appBarMain.toolbar);
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_Accessory,

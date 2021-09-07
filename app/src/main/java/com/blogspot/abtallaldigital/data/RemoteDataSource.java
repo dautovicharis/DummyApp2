@@ -6,7 +6,6 @@ import com.blogspot.abtallaldigital.pojo.PostList;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Observable;
-import retrofit2.Call;
 import retrofit2.Response;
 
 public class RemoteDataSource {
