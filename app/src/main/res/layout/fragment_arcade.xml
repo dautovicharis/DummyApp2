@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.arcade.ArcadeFragment"
+    tools:context=".ui.ArcadeFragment"
     android:orientation="vertical">
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         app:shimmer_auto_start="true"
         app:shimmer_repeat_mode="restart"
+        tools:visibility="gone"
         app:shimmer_shape="radial">
 
         <LinearLayout
@@ -37,17 +38,30 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/arcadeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/recyclerViewColor"
         android:orientation="vertical" />
+
+    <Button
+        android:id="@+id/loadMoreBtn"
+        android:layout_weight="0.02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load More"
+        android:textSize="@dimen/_14ssp"
+        android:textAllCaps="false"
+        tools:visibility="visible"
+        >
+    </Button>
 
 
     <TextView
         android:id="@+id/emptyView"
-        style="@style/EmptyViewStyle"
         android:text="@string/no_data_available"
         tools:text="@string/no_data_available"
-        tools:visibility="visible" />
-
+        tools:visibility="gone"
+        android:visibility="gone"
+        style="@style/EmptyViewStyle" />
 
 </LinearLayout>

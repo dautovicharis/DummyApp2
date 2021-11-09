@@ -7,50 +7,102 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.blogspot.abtallaldigital.ui.home.HomeFragment"
+        android:name="com.blogspot.abtallaldigital.ui.HomeFragment"
         android:label="@string/home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_Accessory"
-        android:name="com.blogspot.abtallaldigital.ui.accessory.AccessoryFragment"
+        android:id="@+id/nav_accessory"
+        android:name="com.blogspot.abtallaldigital.ui.AccessoryFragment"
         android:label="@string/accessory"
-        tools:layout="@layout/fragment_accessory" />
+        tools:layout="@layout/fragment_accessory">
+        <action
+            android:id="@+id/action_nav_Accessory_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_Arcade"
-        android:name="com.blogspot.abtallaldigital.ui.arcade.ArcadeFragment"
+        android:id="@+id/nav_arcade"
+        android:name="com.blogspot.abtallaldigital.ui.ArcadeFragment"
         android:label="@string/arcade"
-        tools:layout="@layout/fragment_arcade" />
+        tools:layout="@layout/fragment_arcade">
+        <action
+            android:id="@+id/action_nav_Arcade_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_Fashion"
-        android:name="com.blogspot.abtallaldigital.ui.fashion.FashionFragment"
+        android:id="@+id/nav_fashion"
+        android:name="com.blogspot.abtallaldigital.ui.FashionFragment"
         android:label="@string/fashion"
-        tools:layout="@layout/fashion_fragment" />
+        tools:layout="@layout/fragment_fashion">
+        <action
+            android:id="@+id/action_nav_Fashion_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_Food"
-        android:name="com.blogspot.abtallaldigital.ui.food.FoodFragment"
+        android:id="@+id/nav_food"
+        android:name="com.blogspot.abtallaldigital.ui.FoodFragment"
         android:label="@string/food"
-        tools:layout="@layout/food_fragment" />
+        tools:layout="@layout/food_fragment">
+        <action
+            android:id="@+id/action_nav_Food_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_Heath"
-        android:name="com.blogspot.abtallaldigital.ui.heath.HeathFragment"
+        android:id="@+id/nav_heath"
+        android:name="com.blogspot.abtallaldigital.ui.HeathFragment"
         android:label="@string/heath"
-        tools:layout="@layout/heath_fragment" />
+        tools:layout="@layout/heath_fragment">
+        <action
+            android:id="@+id/action_nav_Heath_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_Lifestyle"
-        android:name="com.blogspot.abtallaldigital.ui.lifestyle.LifestyleFragment"
+        android:id="@+id/nav_lifestyle"
+        android:name="com.blogspot.abtallaldigital.ui.LifestyleFragment"
         android:label="@string/lifestyle"
-        tools:layout="@layout/lifestyle_fragment" />
+        tools:layout="@layout/lifestyle_fragment">
+        <action
+            android:id="@+id/action_nav_Lifestyle_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/nav_Sports"
-        android:name="com.blogspot.abtallaldigital.ui.sports.SportsFragment"
+        android:id="@+id/nav_sports"
+        android:name="com.blogspot.abtallaldigital.ui.SportsFragment"
         android:label="@string/sports"
-        tools:layout="@layout/sports_fragment" />
+        tools:layout="@layout/sports_fragment">
+        <action
+            android:id="@+id/action_nav_Sports_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
     <dialog
         android:id="@+id/about"
-        android:name="com.blogspot.abtallaldigital.ui.about.AboutFragment"
+        android:name="com.blogspot.abtallaldigital.ui.AboutFragment"
         android:label="about"
         tools:layout="@layout/about" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.blogspot.abtallaldigital.ui.DetailsFragment"
+        android:label="Post details"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="postItem"
+            app:argType="com.blogspot.abtallaldigital.pojo.Item" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="com.blogspot.abtallaldigital.ui.FavoritesFragment"
+        android:label="Favorites posts"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/action_favoritesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 </navigation>

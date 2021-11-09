@@ -25,6 +25,8 @@
     <color name="darker">#151B20</color>
 
     <color name="statusBarColor">@color/primaryDarkColor</color>
+    <color name="contextualStatusBarColor">@color/darker</color>
+    <color name="contextualActionBarColor">@color/dark</color>
     <color name="actionBarBackgroundColor">@color/primaryColor</color>
 
 
@@ -34,11 +36,10 @@
     <color name="cardBackgroundLightColor">#106200EA</color>
     <color name="titleColor">@color/darker</color>
     <color name="descriptionColor">@color/darkGray</color>
-
     <color name="backgroundColor">@color/lightGray</color>
     <color name="placeholderColor">@color/mediumGray</color>
-
     <color name="recyclerViewColor">#F5F5F5</color>
-
     <color name="color_navigation_list_background">@color/white</color>
+
+    <color name="favoritesIconColor">#F05D6E</color>
 </resources>

@@ -4,13 +4,14 @@ import com.blogspot.abtallaldigital.pojo.Item;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
-@Database(entities = Item.class, version = 1, exportSchema = false)
+@Database(entities = {Item.class, FavoritesEntity.class}, version = 1, exportSchema = false)
 //@TypeConverters(Converters.class)
-
+@TypeConverters(ItemTypeConverter.class)
 public abstract class ItemsDatabase extends RoomDatabase {
 
-//    private static ItemsDatabase INSTANCE;
+    //    private static ItemsDatabase INSTANCE;
 //
     public abstract ItemDAO itemDAO();
 //

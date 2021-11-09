@@ -1,15 +1,13 @@
 
 package com.blogspot.abtallaldigital.pojo;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import java.io.Serializable;
 
 public class Blog implements Serializable {
 
-    @SerializedName("id")
-    @Expose
+    @Json(name = "id")
     private String id;
 
     public String getId() {

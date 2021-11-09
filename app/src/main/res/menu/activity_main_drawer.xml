@@ -11,39 +11,45 @@
             />
 
         <item
-            android:id="@+id/nav_Accessory"
+            android:id="@+id/nav_accessory"
             android:title="@string/accessory"
             android:icon="@drawable/necklace"
             />
         <item
-            android:id="@+id/nav_Arcade"
+            android:id="@+id/nav_arcade"
             android:title="@string/arcade"
             android:icon="@drawable/arcade_cabinet"
             />
         <item
-            android:id="@+id/nav_Fashion"
+            android:id="@+id/nav_fashion"
             android:title="@string/fashion"
             android:icon="@drawable/fashion_trend"
             />
         <item
-            android:id="@+id/nav_Food"
+            android:id="@+id/nav_food"
             android:title="@string/food"
             android:icon="@drawable/hamburger"
             />
         <item
-            android:id="@+id/nav_Heath"
+            android:id="@+id/nav_heath"
             android:title="@string/heath"
             android:icon="@drawable/clinic"
             />
         <item
-            android:id="@+id/nav_Lifestyle"
+            android:id="@+id/nav_lifestyle"
             android:title="@string/lifestyle"
             android:icon="@drawable/yoga"
             />
         <item
-            android:id="@+id/nav_Sports"
+            android:id="@+id/nav_sports"
             android:title="@string/sports"
             android:icon="@drawable/soccer"
+            />
+
+        <item
+            android:id="@+id/nav_favorites"
+            android:title="@string/favorites_posts"
+            android:icon="@drawable/ic_favorite"
             />
 
         <item
@@ -51,6 +57,7 @@
             android:title="@string/about"
             android:icon="@drawable/about"
             />
+
     </group>
 
 </menu>

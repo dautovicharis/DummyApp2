@@ -1,7 +1,6 @@
 package com.blogspot.abtallaldigital.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +16,7 @@ import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.databinding.CardLayoutBinding;
 import com.blogspot.abtallaldigital.databinding.CardMagazineBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
-import com.blogspot.abtallaldigital.ui.DetailsActivity;
-import com.blogspot.abtallaldigital.ui.home.HomeFragment;
+import com.blogspot.abtallaldigital.ui.HomeFragment;
 import com.blogspot.abtallaldigital.utils.MyImageview;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
 import com.bumptech.glide.Glide;
@@ -26,7 +24,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.ocpsoft.prettytime.PrettyTime;
 
@@ -38,7 +35,7 @@ import java.util.Locale;
 
 public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final Context context;
-    private final List<com.blogspot.abtallaldigital.pojo.Item> items;
+    private final List<Item> items;
 
     private static final int CARD = 0;
     private static final int CARD_MAGAZINE = 1;
@@ -106,10 +103,9 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         int itemType = getViewType();
-        com.blogspot.abtallaldigital.pojo.Item item = items.get(holder.getAdapterPosition());
+        Item item = items.get(holder.getAdapterPosition());
         final Document document = Jsoup.parse(item.getContent());
         final Elements elements = document.select("img");
-        Intent intent = new Intent(context, com.blogspot.abtallaldigital.ui.DetailsActivity.class);
 
 //        Log.e("IMAGE", document.getAllElements().select("img").get(0).attr("src"));
 
@@ -150,44 +146,11 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     }
 
                     if (position == getItemCount() - 1)
-                        if (fragment instanceof com.blogspot.abtallaldigital.ui.home.HomeFragment) {
+                        if (fragment instanceof HomeFragment) {
                             postViewModel.getPosts();
                         } else {
                             postViewModel.getPostListByLabel();
                         }
-
-                    titleViewHolder.itemView.setOnClickListener(view -> {
-                        intent.putExtra("url", item.getUrl());
-                        intent.putExtra("title", item.getTitle());
-                        intent.putExtra("content", item.getContent());
-                        int youtubeThumbnailImageSetVisibility = 0;
-
-                        Element element = document.body();
-
-                        String youtubeThumbnailImageSrc = "";
-                        String youTubeLink = "";
-                        for (Element e : element.getElementsByClass
-                                ("YOUTUBE-iframe-video")) {
-                            youtubeThumbnailImageSrc = e.attr("data-thumbnail-src");
-                            youTubeLink = e.attr("src");
-                            Log.e("YouTube thumbnail", youtubeThumbnailImageSrc);
-                            Log.e("Youtube link", youTubeLink);
-                        }
-
-                        if (youtubeThumbnailImageSrc.isEmpty()) {
-                            youtubeThumbnailImageSetVisibility = 8;
-                            intent.putExtra("youtubeThumbnailImageSetVisibility",
-                                    youtubeThumbnailImageSetVisibility);
-                        } else {
-                            intent.putExtra("youtubeThumbnailImageSrc", youtubeThumbnailImageSrc);
-                            intent.putExtra("youTubeLink", youTubeLink);
-                        }
-
-//             String imageSrc = elements.get(0).attr("src");
-//             intent.putExtra("blogImage",imageSrc);
-
-                        view.getContext().startActivity(intent);
-                    });
 
                 }
                 break;
@@ -216,38 +179,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                             postViewModel.getPostListByLabel();
                         }
 
-                    gridViewHolder.itemView.setOnClickListener(view -> {
-                        intent.putExtra("url", item.getUrl());
-                        intent.putExtra("title", item.getTitle());
-                        intent.putExtra("content", item.getContent());
-                        int youtubeThumbnailImageSetVisibility = 0;
-
-                        Element element = document.body();
-
-                        String youtubeThumbnailImageSrc = "";
-                        String youTubeLink = "";
-                        for (Element e : element.getElementsByClass
-                                ("YOUTUBE-iframe-video")) {
-                            youtubeThumbnailImageSrc = e.attr("data-thumbnail-src");
-                            youTubeLink = e.attr("src");
-                            Log.e("YouTube thumbnail", youtubeThumbnailImageSrc);
-                            Log.e("Youtube link", youTubeLink);
-                        }
-
-                        if (youtubeThumbnailImageSrc.isEmpty()) {
-                            youtubeThumbnailImageSetVisibility = 8;
-                            intent.putExtra("youtubeThumbnailImageSetVisibility",
-                                    youtubeThumbnailImageSetVisibility);
-                        } else {
-                            intent.putExtra("youtubeThumbnailImageSrc", youtubeThumbnailImageSrc);
-                            intent.putExtra("youTubeLink", youTubeLink);
-                        }
-
-//             String imageSrc = elements.get(0).attr("src");
-//             intent.putExtra("blogImage",imageSrc);
-
-                        view.getContext().startActivity(intent);
-                    });
                 }
         }
     }
@@ -266,8 +197,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
-        //        ImageView postImage;
-//        TextView postTitle, postDescription, postDate;
         final CardLayoutBinding cardLayoutBinding;
         final Context context;
 
@@ -276,11 +205,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             cardLayoutBinding = binding;
             context = cardLayoutBinding.getRoot().getContext();
 
-
-//            postImage = itemView.findViewById(R.id.postImage);
-//            postTitle = itemView.findViewById(R.id.postTitle);
-//            postDescription = itemView.findViewById(R.id.postDescription);
-//            postDate = itemView.findViewById(R.id.postDate);
 
         }
 
@@ -293,7 +217,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Date date = new Date();
             SimpleDateFormat format = new SimpleDateFormat
                     ("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault());
-            Intent intent = new Intent(cardLayoutBinding.getRoot().getContext(), com.blogspot.abtallaldigital.ui.DetailsActivity.class);
 
             cardLayoutBinding.postTitle.setText(item.getTitle());
 
@@ -322,39 +245,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             cardLayoutBinding.postDate.setText(prettyTime.format(date));
 
-            cardLayoutBinding.getRoot().setOnClickListener(view -> {
-
-                intent.putExtra("url", item.getUrl());
-                intent.putExtra("title", item.getTitle());
-                intent.putExtra("content", item.getContent());
-                int youtubeThumbnailImageSetVisibility = 0;
-
-                Element element = document.body();
-
-                String youtubeThumbnailImageSrc = "";
-                String youTubeLink = "";
-                for (Element e : element.getElementsByClass
-                        ("YOUTUBE-iframe-video")) {
-                    youtubeThumbnailImageSrc = e.attr("data-thumbnail-src");
-                    youTubeLink = e.attr("src");
-                    Log.e("YouTube thumbnail", youtubeThumbnailImageSrc);
-                    Log.e("Youtube link", youTubeLink);
-                }
-
-                if (youtubeThumbnailImageSrc.isEmpty()) {
-                    youtubeThumbnailImageSetVisibility = 8;
-                    intent.putExtra("youtubeThumbnailImageSetVisibility",
-                            youtubeThumbnailImageSetVisibility);
-                } else {
-                    intent.putExtra("youtubeThumbnailImageSrc", youtubeThumbnailImageSrc);
-                    intent.putExtra("youTubeLink", youTubeLink);
-                }
-
-//             String imageSrc = elements.get(0).attr("src");
-//             intent.putExtra("blogImage",imageSrc);
-
-                cardLayoutBinding.getRoot().getContext().startActivity(intent);
-            });
         }
     }
 
@@ -379,8 +269,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             Date date = new Date();
             SimpleDateFormat format = new SimpleDateFormat
                     ("yyyy-MM-dd'T'HH:mm:ssZ", Locale.getDefault());
-            Intent intent = new Intent(cardMagazineBinding.getRoot().getContext(),
-                    DetailsActivity.class);
 
 
 //        Log.e("IMAGE", document.getAllElements().select("img").get(0).attr("src"));
@@ -408,39 +296,6 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             PrettyTime prettyTime = new PrettyTime();
 
             cardMagazineBinding.postDate.setText(prettyTime.format(date));
-
-            cardMagazineBinding.getRoot().setOnClickListener(view -> {
-                intent.putExtra("url", item.getUrl());
-                intent.putExtra("title", item.getTitle());
-                intent.putExtra("content", item.getContent());
-                int youtubeThumbnailImagesetVisibility = 0;
-
-                Element element = document.body();
-
-                String youtubeThumbnailImageSrc = "";
-                String youTubeLink = "";
-                for (Element e : element.getElementsByClass
-                        ("YOUTUBE-iframe-video")) {
-                    youtubeThumbnailImageSrc = e.attr("data-thumbnail-src");
-                    youTubeLink = e.attr("src");
-                    Log.e("YouTube thumbnail", youtubeThumbnailImageSrc);
-                    Log.e("Youtube link", youTubeLink);
-                }
-
-                if (youtubeThumbnailImageSrc.isEmpty()) {
-                    youtubeThumbnailImagesetVisibility = 8;
-                    intent.putExtra("youtubeThumbnailImagesetVisibility",
-                            youtubeThumbnailImagesetVisibility);
-                } else {
-                    intent.putExtra("youtubeThumbnailImageSrc", youtubeThumbnailImageSrc);
-                    intent.putExtra("youTubeLink", youTubeLink);
-                }
-
-//             String imageSrc = elements.get(0).attr("src");
-//             intent.putExtra("blogImage",imageSrc);
-
-                cardMagazineBinding.getRoot().getContext().startActivity(intent);
-            });
 
         }
     }

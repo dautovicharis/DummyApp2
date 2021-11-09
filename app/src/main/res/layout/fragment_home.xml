@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.HomeFragment">
 
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         app:shimmer_auto_start="true"
         app:shimmer_repeat_mode="restart"
+        tools:visibility="gone"
         app:shimmer_shape="radial">
 
         <LinearLayout
@@ -38,16 +39,33 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layoutManager=".utils.WrapContentLinearLayoutManager"
         android:background="@color/recyclerViewColor"
         android:orientation="vertical" />
+
+
+    <Button
+        android:id="@+id/loadMoreBtn"
+        android:layout_weight="0.02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load More"
+        android:textSize="@dimen/_14ssp"
+        android:textAllCaps="false"
+        tools:visibility="visible"
+        >
+    </Button>
 
 
     <TextView
         android:id="@+id/emptyView"
         android:text="@string/no_data_available"
         tools:text="@string/no_data_available"
-        tools:visibility="visible"
+        tools:visibility="gone"
+        android:visibility="gone"
         style="@style/EmptyViewStyle" />
+
 
 </LinearLayout>

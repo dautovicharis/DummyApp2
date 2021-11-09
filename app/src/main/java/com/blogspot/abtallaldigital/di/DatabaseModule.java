@@ -21,8 +21,8 @@ public class DatabaseModule {
 
     @Singleton
     @Provides
-    public static com.blogspot.abtallaldigital.data.database.ItemsDatabase provideDataBase(@ApplicationContext Context context) {
-        return Room.databaseBuilder(context, com.blogspot.abtallaldigital.data.database.ItemsDatabase.class, "items_database")
+    public static ItemsDatabase provideDataBase(@ApplicationContext Context context) {
+        return Room.databaseBuilder(context, ItemsDatabase.class, "items_database")
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();

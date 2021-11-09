@@ -1,19 +1,21 @@
 
 package com.blogspot.abtallaldigital.pojo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Entity(tableName = "item_table")
-public class Item implements Serializable {
+public class Item implements Serializable, Parcelable {
 
     public int getReDefinedID() {
         return reDefinedID;
@@ -24,48 +26,44 @@ public class Item implements Serializable {
     }
 
     @PrimaryKey(autoGenerate = true)
-    private int reDefinedID ;
+    private int reDefinedID;
 
-    @SerializedName("kind")
-    @Expose
+    @Json(name = "kind")
     private String kind;
-    @SerializedName("id")
-    @Expose
+
+    @Json(name = "id")
     private String id;
-    @SerializedName("blog")
-    @Expose
+
+    @Json(name = "blog")
     //@DatabaseField (foreign = true, foreignAutoRefresh = true)
     @Ignore
     private com.blogspot.abtallaldigital.pojo.Blog blog;
-    @SerializedName("published")
-    @Expose
+    @Json(name = "published")
     private String published;
-    @SerializedName("updated")
-    @Expose
+
+    @Json(name = "updated")
     private String updated;
-    @SerializedName("etag")
-    @Expose
+
+    @Json(name = "etag")
     private String etag;
-    @SerializedName("url")
-    @Expose
+
+    @Json(name = "url")
     private String url;
-    @SerializedName("selfLink")
-    @Expose
+
+    @Json(name = "selfLink")
     private String selfLink;
-    @SerializedName("title")
-    @Expose
+
+    @Json(name = "title")
     private String title;
-    @SerializedName("content")
-    @Expose
+
+    @Json(name = "content")
     private String content;
-    @SerializedName("author")
-    @Expose
-    //@DatabaseField (foreign = true, foreignAutoRefresh = true)
+
+    @Json(name = "author")
     @Ignore
     private Author author;
     @Ignore
-    @SerializedName("labels")
-    @Expose
+    @Json(name = "labels")
     private List<String> labels;
 
 
@@ -170,4 +168,73 @@ public class Item implements Serializable {
     public boolean equals(@Nullable Object obj) {
         return super.equals(obj);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.reDefinedID);
+        dest.writeString(this.kind);
+        dest.writeString(this.id);
+        dest.writeSerializable(this.blog);
+        dest.writeString(this.published);
+        dest.writeString(this.updated);
+        dest.writeString(this.etag);
+        dest.writeString(this.url);
+        dest.writeString(this.selfLink);
+        dest.writeString(this.title);
+        dest.writeString(this.content);
+        dest.writeSerializable(this.author);
+        dest.writeStringList(this.labels);
+    }
+
+    public void readFromParcel(Parcel source) {
+        this.reDefinedID = source.readInt();
+        this.kind = source.readString();
+        this.id = source.readString();
+        this.blog = (Blog) source.readSerializable();
+        this.published = source.readString();
+        this.updated = source.readString();
+        this.etag = source.readString();
+        this.url = source.readString();
+        this.selfLink = source.readString();
+        this.title = source.readString();
+        this.content = source.readString();
+        this.author = (Author) source.readSerializable();
+        this.labels = source.createStringArrayList();
+    }
+
+    public Item() {
+    }
+
+    protected Item(Parcel in) {
+        this.reDefinedID = in.readInt();
+        this.kind = in.readString();
+        this.id = in.readString();
+        this.blog = (Blog) in.readSerializable();
+        this.published = in.readString();
+        this.updated = in.readString();
+        this.etag = in.readString();
+        this.url = in.readString();
+        this.selfLink = in.readString();
+        this.title = in.readString();
+        this.content = in.readString();
+        this.author = (Author) in.readSerializable();
+        this.labels = in.createStringArrayList();
+    }
+
+    public static final Parcelable.Creator<Item> CREATOR = new Parcelable.Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel source) {
+            return new Item(source);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 }

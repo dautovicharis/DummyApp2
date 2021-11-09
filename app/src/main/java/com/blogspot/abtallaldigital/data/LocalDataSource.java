@@ -2,8 +2,10 @@ package com.blogspot.abtallaldigital.data;
 
 import androidx.lifecycle.LiveData;
 
+import com.blogspot.abtallaldigital.data.database.FavoritesEntity;
 import com.blogspot.abtallaldigital.data.database.ItemDAO;
 import com.blogspot.abtallaldigital.pojo.Item;
+import com.blogspot.abtallaldigital.pojo.PostList;
 
 
 import java.util.List;
@@ -32,5 +34,21 @@ public class LocalDataSource {
 
     public Observable<List<Item>> getItemsBySearch(String keyword) {
         return itemDAO.getItemsBySearch(keyword);
+    }
+
+    public Completable insertFavorites(FavoritesEntity favoritesEntity) {
+        return itemDAO.insertFavorites(favoritesEntity);
+    }
+
+    public LiveData<List<FavoritesEntity>> getAllFavorites() {
+        return itemDAO.getAllFavorites();
+    }
+
+    public void deleteFavorite(FavoritesEntity favoritesEntity) {
+        itemDAO.deleteFavorite(favoritesEntity);
+    }
+
+    public Completable deleteAllFavorites() {
+        return itemDAO.deleteAllFavorites();
     }
 }

@@ -3,13 +3,13 @@ package com.blogspot.abtallaldigital.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.squareup.moshi.Json;
 
 import java.io.Serializable;
 
 public class Image implements Serializable {
 
-    @SerializedName("url")
-    @Expose
+    @Json(name = "url")
     private String url;
 
     public String getUrl() {

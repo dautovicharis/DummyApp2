@@ -1,6 +1,7 @@
 package com.blogspot.abtallaldigital.di;
 
 import com.blogspot.abtallaldigital.data.network.PostAPIService;
+import com.squareup.moshi.Moshi;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,7 @@ import dagger.hilt.components.SingletonComponent;
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.moshi.MoshiConverterFactory;
 
 import static com.blogspot.abtallaldigital.utils.Constants.getBaseUrl;
 
@@ -22,6 +23,11 @@ import static com.blogspot.abtallaldigital.utils.Constants.getBaseUrl;
 @Module
 public class NetworkModule {
 
+    @Singleton
+    @Provides
+    public static Moshi provideMoshi() {
+        return new Moshi.Builder().build();
+    }
 
     @Singleton
     @Provides
@@ -37,7 +43,7 @@ public class NetworkModule {
         return new Retrofit.Builder()
                 .baseUrl(getBaseUrl())
                 .client(provideHTTPClient())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build().create(PostAPIService.class);
     }

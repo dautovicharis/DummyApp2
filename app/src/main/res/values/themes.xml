@@ -15,6 +15,8 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/contextualActionBarColor</item>
 
     </style>
 
@@ -40,15 +42,12 @@
 
     <style name="CustomActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
         <item name="background">@color/primaryColor</item>
-
         <item name="android:textColorPrimary">@color/white</item>
-
         <item name="android:textColorSecondary">@color/white</item>
 
     </style>
 
     <style name="ThemeOverlay.AppCompat.navTheme">
-
         <!-- Color of text and icon when SELECTED -->
         <item name="colorPrimary">@color/white</item>
 

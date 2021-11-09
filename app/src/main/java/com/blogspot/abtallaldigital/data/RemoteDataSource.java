@@ -18,11 +18,11 @@ public class RemoteDataSource {
         this.postAPIService = postAPIService;
     }
 
-    public Observable<Response<com.blogspot.abtallaldigital.pojo.PostList>> getPostList(String URL) {
+    public Observable<Response<PostList>> getPostList(String URL) {
         return postAPIService.getPostList(URL);
     }
 
-    public Observable<Response<com.blogspot.abtallaldigital.pojo.PostList>> getPostListByLabel(String URL) {
+    public Observable<Response<PostList>> getPostListByLabel(String URL) {
         return postAPIService.getPostListByLabel(URL);
     }
 
