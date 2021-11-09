@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.blogspot.abtallaldigital.R;
 import com.blogspot.abtallaldigital.adapters.FavoritesPostAdapter;
-import com.blogspot.abtallaldigital.data.database.FavoritesEntity;
 import com.blogspot.abtallaldigital.databinding.FragmentFavoritesBinding;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
@@ -27,8 +26,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -39,7 +36,6 @@ public class FavoritesFragment extends Fragment {
     private com.blogspot.abtallaldigital.viewmodels.PostViewModel postViewModel;
     private static final String TAG = "FavoritesFragment";
     private FavoritesPostAdapter favoritesPostAdapter;
-    private List<FavoritesEntity> favoritesList;
     private GridLayoutManager titleLayoutManager, gridLayoutManager;
     com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager layoutManager;
 
@@ -64,7 +60,7 @@ public class FavoritesFragment extends Fragment {
                 binding.emptyView.setVisibility(View.VISIBLE);
             } else {
 
-                favoritesList.addAll(favoritesPostList);
+                favoritesPostAdapter.addData(favoritesPostList);
                 binding.shimmerLayout.stopShimmer();
                 binding.shimmerLayout.setVisibility(View.GONE);
                 binding.favoritesRecyclerView.setVisibility(View.VISIBLE);
@@ -166,10 +162,8 @@ public class FavoritesFragment extends Fragment {
 
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
 
-        favoritesList = new ArrayList<>();
         favoritesPostAdapter =
-                new FavoritesPostAdapter(requireActivity(),
-                        favoritesList, this, postViewModel);
+                new FavoritesPostAdapter(requireActivity(), this, postViewModel);
 
         layoutManager = new WrapContentLinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);

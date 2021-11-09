@@ -46,7 +46,7 @@ import java.util.Objects;
 public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final FragmentActivity fragmentActivity;
-    private final List<FavoritesEntity> favoritesList;
+    private List<FavoritesEntity> favoritesList;
     private View rootView;
 
     private static final int CARD = 0;
@@ -66,12 +66,16 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
     private final List<RecyclerView.ViewHolder> myViewHolders = new ArrayList<>();
 
     public FavoritesPostAdapter(FragmentActivity fragmentActivity,
-                                List<FavoritesEntity> favoritesList, Fragment fragment,
+                                Fragment fragment,
                                 PostViewModel postViewModel) {
         this.fragmentActivity = fragmentActivity;
-        this.favoritesList = favoritesList;
+        this.favoritesList = new ArrayList<>();
         this.fragment = fragment;
         this.postViewModel = postViewModel;
+    }
+
+    public void addData (List<FavoritesEntity> data) {
+        this.favoritesList = data;
     }
 
     public void setViewType(int viewType) {
