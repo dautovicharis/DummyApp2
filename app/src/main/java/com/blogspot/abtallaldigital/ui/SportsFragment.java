@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -26,20 +27,17 @@ import com.blogspot.abtallaldigital.adapters.PostAdapter;
 import com.blogspot.abtallaldigital.databinding.SportsFragmentBinding;
 import com.blogspot.abtallaldigital.pojo.Item;
 import com.blogspot.abtallaldigital.utils.Constants;
+import com.blogspot.abtallaldigital.utils.RecyclerItemClickListener;
 import com.blogspot.abtallaldigital.utils.Utils;
 import com.blogspot.abtallaldigital.utils.WrapContentLinearLayoutManager;
 import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.reactivestreams.Subscription;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.FlowableSubscriber;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
 @SuppressWarnings("ALL")
@@ -56,6 +54,36 @@ public class SportsFragment extends Fragment {
     private int currentItems, totalItems, scrollOutItems;
     private GridLayoutManager titleLayoutManager, gridLayoutManager;
     WrapContentLinearLayoutManager layoutManager;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.sportsRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(requireContext(),
+                binding.sportsRecyclerView,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+
+                        Item item = itemArrayList.get(position);
+
+                        if (Objects.requireNonNull(Navigation.findNavController(requireView())
+                                .getCurrentDestination()).getId() == R.id.nav_sports) {
+                            Navigation.findNavController(requireView())
+                                    .navigate(SportsFragmentDirections
+                                            .actionNavSportsToDetailsFragment(item));
+                        }
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+
+                    }
+                }
+        ));
+    }
+
 
 
     @Override

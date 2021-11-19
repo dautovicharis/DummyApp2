@@ -14,11 +14,11 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeBackground">@color/contextualActionBarColor</item>
     </style>
 
     `
-
-
     <style name="CustomActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
         <item name="background">@color/actionBarBackgroundColor</item>
 
@@ -33,9 +33,14 @@
         <item name="colorPrimary">@color/white</item>
 
         <!-- Background color when SELECTED -->
-        <item name="colorControlHighlight">@color/primaryColor</item>
+        <item name="colorControlHighlight">@color/mediumGray</item>
 
     </style>
+
+<!--    <style name="CustomNavigationViewStyle" parent="Widget.MaterialComponents.NavigationView">-->
+<!--        <item name="itemIconTint">@color/navigation_view_item_color</item>-->
+<!--        <item name="itemTextColor">@color/navigation_view_item_color</item>-->
+<!--    </style>-->
 
     <style name="progressBarBlue" parent="@style/Theme.AppCompat">
         <item name="colorAccent">@color/secondaryColor</item>
@@ -50,12 +55,12 @@
 
     <style name="PostTitle">
         <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/titleColor</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="PostBody">
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/descriptionColor</item>
     </style>
 </resources>

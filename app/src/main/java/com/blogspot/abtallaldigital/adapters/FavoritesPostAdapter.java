@@ -61,7 +61,7 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
     public final PostViewModel postViewModel;
     private ActionMode mActionMode;
     private boolean multiSelection = false;
-//    private int selectedPostPosition ;
+    //    private int selectedPostPosition ;
     private final List<FavoritesEntity> selectedPosts = new ArrayList<>();
     private final List<RecyclerView.ViewHolder> myViewHolders = new ArrayList<>();
 
@@ -81,6 +81,10 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
     public void setViewType(int viewType) {
         this.viewType = viewType;
         notifyDataSetChanged();
+    }
+
+    public void addData(List<FavoritesEntity> data) {
+        this.favoritesList = data;
     }
 
     public int getViewType() {
@@ -145,12 +149,11 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (selectedPosts.contains(currentSelectedPost)) {
             selectedPosts.remove(currentSelectedPost);
             changePostStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor);
-            applyActionModeTitle();
         } else {
             selectedPosts.add(currentSelectedPost);
             changePostStyle(holder, R.color.cardBackgroundLightColor, R.color.primaryColor);
-            applyActionModeTitle();
         }
+        applyActionModeTitle();
     }
 
     private void changePostStyle(RecyclerView.ViewHolder holder, int backgroundColor, int strokeColor) {
