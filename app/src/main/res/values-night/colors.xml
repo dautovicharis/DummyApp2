@@ -22,10 +22,13 @@
     <color name="cardBackgroundLightColor">#106200EA</color>
     <color name="titleColor">@color/mediumGray</color>
     <color name="descriptionColor">@color/mediumGray</color>
-
-    <color name="backgroundColor">@color/lightGray</color>
+    <color name="backgroundColor">@color/dark</color>
     <color name="placeholderColor">@color/darker</color>
-
     <color name="color_navigation_list_background">@color/darker</color>
+    <color name="favoritesIconColor">#F05D6E</color>
+
+<!--    // Custom NavigationView Style-->
+<!--    <color name="navigationViewItemColor">@color/white</color>-->
+<!--    <color name="navigationViewCheckedItemColor">@color/mediumGray</color>-->
 
 </resources>

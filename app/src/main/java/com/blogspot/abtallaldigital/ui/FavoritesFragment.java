@@ -25,8 +25,6 @@ import com.blogspot.abtallaldigital.viewmodels.PostViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.jetbrains.annotations.NotNull;
-
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -162,8 +160,8 @@ public class FavoritesFragment extends Fragment {
 
         postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
 
-        favoritesPostAdapter =
-                new FavoritesPostAdapter(requireActivity(), this, postViewModel);
+        favoritesPostAdapter = new FavoritesPostAdapter(requireActivity(), this, postViewModel);
+
 
         layoutManager = new WrapContentLinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);

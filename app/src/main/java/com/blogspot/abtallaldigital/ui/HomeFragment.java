@@ -80,17 +80,22 @@ public class HomeFragment extends Fragment {
     }
 
 
+    @Override
+    public void onCreate(@Nullable  Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        itemArrayList = new ArrayList<>();
+        adapter = new PostAdapter(getContext(), itemArrayList, this, postViewModel);
+        postViewModel = new ViewModelProvider(getActivity()).get(PostViewModel.class);
+        postViewModel.finalURL.setValue(Constants.getBaseUrl() + "?key=" + Constants.getKEY());
+    }
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         setHasOptionsMenu(true);
-
-        postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
-        postViewModel.finalURL.setValue(Constants.getBaseUrl() + "?key=" + Constants.getKEY());
-        itemArrayList = new ArrayList<>();
-        adapter = new PostAdapter(getContext(), itemArrayList, this, postViewModel);
 
         layoutManager = new WrapContentLinearLayoutManager(requireContext(),
                 LinearLayoutManager.VERTICAL, false);
