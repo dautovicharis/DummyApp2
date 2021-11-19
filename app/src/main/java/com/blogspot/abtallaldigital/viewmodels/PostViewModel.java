@@ -190,7 +190,6 @@ public class PostViewModel extends ViewModel {
                     public void onError(@NonNull Throwable e) {
                         isLoading.setValue(false);
                         Log.e(TAG, e.getMessage() + e.getCause());
-//                        ifAnythingWrongHappened.setValue(true);
                         if (e instanceof HttpException) {
                             errorCode.setValue(((HttpException) e).code());
                         }

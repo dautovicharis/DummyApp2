@@ -49,7 +49,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public final com.blogspot.abtallaldigital.viewmodels.PostViewModel postViewModel;
 
     public PostAdapter(Context context,
-                       List<com.blogspot.abtallaldigital.pojo.Item> items, Fragment fragment,
+                       List<Item> items, Fragment fragment,
                        PostViewModel postViewModel) {
         this.context = context;
         this.items = items;

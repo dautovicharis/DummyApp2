@@ -46,7 +46,7 @@ import java.util.Objects;
 public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final FragmentActivity fragmentActivity;
-    private final List<FavoritesEntity> favoritesList;
+    private List<FavoritesEntity> favoritesList;
     private View rootView;
 
     private static final int CARD = 0;
@@ -61,15 +61,15 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
     public final PostViewModel postViewModel;
     private ActionMode mActionMode;
     private boolean multiSelection = false;
-//    private int selectedPostPosition ;
+    //    private int selectedPostPosition ;
     private final List<FavoritesEntity> selectedPosts = new ArrayList<>();
     private final List<RecyclerView.ViewHolder> myViewHolders = new ArrayList<>();
 
     public FavoritesPostAdapter(FragmentActivity fragmentActivity,
-                                List<FavoritesEntity> favoritesList, Fragment fragment,
+                                Fragment fragment,
                                 PostViewModel postViewModel) {
         this.fragmentActivity = fragmentActivity;
-        this.favoritesList = favoritesList;
+        this.favoritesList = new ArrayList<>();
         this.fragment = fragment;
         this.postViewModel = postViewModel;
     }
@@ -77,6 +77,10 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
     public void setViewType(int viewType) {
         this.viewType = viewType;
         notifyDataSetChanged();
+    }
+
+    public void addData(List<FavoritesEntity> data) {
+        this.favoritesList = data;
     }
 
     public int getViewType() {
@@ -141,12 +145,11 @@ public class FavoritesPostAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (selectedPosts.contains(currentSelectedPost)) {
             selectedPosts.remove(currentSelectedPost);
             changePostStyle(holder, R.color.cardBackgroundColor, R.color.strokeColor);
-            applyActionModeTitle();
         } else {
             selectedPosts.add(currentSelectedPost);
             changePostStyle(holder, R.color.cardBackgroundLightColor, R.color.primaryColor);
-            applyActionModeTitle();
         }
+        applyActionModeTitle();
     }
 
     private void changePostStyle(RecyclerView.ViewHolder holder, int backgroundColor, int strokeColor) {

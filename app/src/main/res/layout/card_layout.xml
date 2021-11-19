@@ -20,6 +20,7 @@
             android:id="@+id/secondLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/cardBackgroundColor"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -32,6 +33,7 @@
                 <TextView
                     android:id="@+id/postTitle"
                     style="@style/PostTitle"
+                    android:textColor="@color/titleColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
@@ -47,6 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:layout_marginEnd="@dimen/_4sdp"
+                    android:textColor="@color/descriptionColor"
                     android:ellipsize="end"
                     android:maxLines="3"
                     tools:text="test" />
